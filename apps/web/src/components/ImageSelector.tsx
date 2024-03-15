@@ -176,6 +176,10 @@ function ImageSelectorImpl({
           onDelete={() => {
             setFiles((prev) => prev.filter((f) => f.id !== file.id));
           }}
+          onDuplicate={() => {
+            const itemIndex = files.findIndex(f => f.id == file.id);
+            setFiles((prev) => [...prev.slice(0, itemIndex + 1), Object.assign({}, file, { id: typeid().toString() }), ...prev.slice(itemIndex + 1)])
+          }}
         />
       ))}
     </div>

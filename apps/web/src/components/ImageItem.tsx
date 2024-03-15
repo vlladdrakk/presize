@@ -59,6 +59,7 @@ const ImageItem = (
     outputSizingMode,
     thumbnailScale,
     onDelete,
+    onDuplicate,
   }: {
     file: File;
     outputSize: Size;
@@ -66,6 +67,7 @@ const ImageItem = (
     outputSizingMode: OutputSizingMode;
     thumbnailScale: number;
     onDelete: () => void;
+    onDuplicate: () => void;
   },
   ref: Ref<AvatarEditor>,
 ) => {
@@ -150,6 +152,14 @@ const ImageItem = (
             }}
           >
             <TbX />
+          </button>
+          <button
+            className="btn btn-xs btn-square"
+            onClick={() => {
+              onDuplicate(this);
+            }}
+          >
+            +
           </button>
         </div>
         <div className="flex items-center gap-2">
